@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MesMalheurs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="MySQL相关问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="https://mesmalheurs.github.io/MySQL/">
+<meta property="og:site_name" content="MesMalheurs">
+<meta property="og:description" content="MySQL相关问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mesmalheurs.github.io/MySQL/image-20220804104928275.png">
+<meta property="og:image" content="https://mesmalheurs.github.io/MySQL/image-20220804105804058.png">
+<meta property="article:published_time" content="2022-08-02T02:52:54.000Z">
+<meta property="article:modified_time" content="2022-08-16T06:37:07.196Z">
+<meta property="article:author" content="consuela">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mesmalheurs.github.io/MySQL/image-20220804104928275.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mesmalheurs.github.io/MySQL/"/>
+
+
+
+
+
+  <title>MySQL | MesMalheurs</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MesMalheurs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mesmalheurs.github.io/MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MesMalheurs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-08-02T10:52:54+08:00">
+                2022-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Expertise/" itemprop="url" rel="index">
+                    <span itemprop="name">Expertise</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MySQL相关问题</p>
+<span id="more"></span>
+
+<h2 id="2022-07-09"><a href="#2022-07-09" class="headerlink" title="2022.07~09"></a>2022.07~09</h2><h3 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h3><p>批量插入verificationCode，需要使用certificateUserId来拼接verificationCode</p>
+<ul>
+<li><p><code>CONCAT()</code>函数：用于将两个或多个字符串拼接成一个字符串并返回</p>
+<p>语法：<code>CONCAT(str1, str2, ...)</code> 至少需要一个参数，如果任何参数为NULL，则该函数返回NULL值。</p>
+</li>
+<li><p><code>CAST()</code>函数：用来转换类型</p>
+<p>语法：<code>CAST(字段名 as 转换的类型)</code>||<code>CAST (expression AS data_type)</code></p>
+<p>expression：任何有效的SQL Server表达式。<br>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。<br>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</p>
+<p>转换的类型：</p>
+<ul>
+<li>二进制，同带binary前缀的效果 : BINARY    </li>
+<li>字符型，可带参数 : CHAR()     </li>
+<li>日期 : DATE     </li>
+<li>时间: TIME     </li>
+<li>日期时间型 : DATETIME     </li>
+<li>浮点数 : DECIMAL      </li>
+<li>整数 : SIGNED     </li>
+<li>无符号整数 : UNSIGNED</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> eb_certificate_user</span><br><span class="line"><span class="keyword">SET</span> verification_code <span class="operator">=</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">null</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="多规格商品的数据库设计"><a href="#多规格商品的数据库设计" class="headerlink" title="多规格商品的数据库设计"></a>多规格商品的数据库设计</h3><p>项目需要做一个虚拟产品的数据库设计，涉及到多个规格</p>
+<p>比如：演出门票</p>
+<p><img src="/MySQL/image-20220804104928275.png" alt="image-20220804104928275"></p>
+<p>涉及：时间、场次、数量</p>
+<div><div class="fold_hider"><div class="close hider_title">查了几种方法：</div></div><div class="fold">
+<ol>
+<li>用大宽表，每当商品有新的属性就新增一个nullable字段。这样不同类型的记录，代码需要自己记得取哪些列。好处是编码简单；坏处是，每次都要加列，做DDL很烦，如果是生产库，运维上会很郁闷，而且直接看表，不太容易分清楚哪个列是给哪个类型的记录预备的，必须另外单独记录文档。</li>
+<li>表上增加一个json列（比如叫properties）每个类型数据特有的属性都塞这个json列里。在不直接支持json的db上，只能用varchar，然后业务代码自己解析这个json。如果在支持json的db上（比如mysql &gt; 5.7.10)，就稍微方便点，可以用json_extract之类的函数。此外一些ORM工具对json支持的不是很好，于是这个json到了object里就是string，需要额外处理。提一句mybatis通过挂一个type handler可以解决，还算容易。此方法的缺点是开发人员要管住json的schema，自己确保数据的合法性。</li>
+<li>将共性的字段放在一个主表里（比如product），此外给每种类型建立一个子表(xxx_product_part)维护特有的字段。这样结构比较清晰，但是每次查询需要引入join。每次增加一种新的类型的时候也要增加对应的新表。</li>
+<li>用主表 + 属性表。属性表就是一个大的kv（pid, key, value)。但问题是value的类型会很麻烦，毕竟可能需要字符串，整数，decimal，日期，时刻，enum等不同的类型。所以要不就是服务得自己搞这个解析转换工作，这时表就得定义为(pid, key, value_type, value_data)；要不就是挨个类型定义一列，上层自己取(pid, key, value_int, value_varchar, value_decimal, …)</li>
+<li>每种产品直接建立新表（xxx_product, yyy_product, …) 但这么干基本上就是在埋坑, 没人会这么干吧。</li>
+</ol>
+<p>如果经常增加产品的类型，可能方法2或者4会比较适合，避免每次都创建新列&#x2F;新表。并且会比较灵活（但管不好就会乱套）。</p>
+<p>如果产品类型增加的不是很频繁，方法1或者3会比较适合。</p>
+
+</div></div>
+
+
+
+<h4 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h4><ol>
+<li><p><strong>【SPU】</strong> &#x3D; Standard Product Unit （标准产品单位）</p>
+<p>SPU是商品信息聚合的最小单位，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。通俗点讲，属性值、特性相同的商品就可以称为一个SPU。</p>
+</li>
+<li><p><strong>【SKU】</strong> &#x3D; Stock Keeping Unit （库存量单位）</p>
+<p>SKU即库存进出计量的单位， 可以是以件、盒、托盘等为单位。</p>
+<p>SKU是物理上不可分割的最小存货单元。在使用时要根据不同业态，不同管理模式来处理。</p>
+</li>
+</ol>
+<p>回到演出门票商品：</p>
+<ul>
+<li><p>SPU：《恋爱的犀牛》演出门票</p>
+</li>
+<li><p>SKU[1]：268元一张的8月4号 20:00 - 21:30 的《恋爱的犀牛》演出门票</p>
+<p>SKU[2]：520元两张的8.4 20:00 - 21:30 的《恋爱的犀牛》演出门票（注意此时两张票为一个sku，所以规格中包含<code>购买票数量</code>）</p>
+</li>
+</ul>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以该门票为例：</p>
+<ol>
+<li><p><code>eb_product</code> 表<code>（SPU表）</code>，只记录SPU信息，不涉及任何具体规格配置</p>
+<table>
+<thead>
+<tr>
+<th>Product_id（商品id）</th>
+<th>Product_name（商品名称）</th>
+<th>shop_id（商家id）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>《恋爱的犀牛》演出门票</td>
+<td>1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>product_sku</code> 表<code>（SKU表）</code>，里面具体到该商品的所有配置的具体ID，但不包括配置信息</p>
+<table>
+<thead>
+<tr>
+<th>sku_id</th>
+<th>sku_name（sku_名称）</th>
+<th>product_id（FK）</th>
+<th>stock</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<blockquote>
+<p>SPU表和SKU表并不直接关联，还需要通过另外三张张表来关键，即通过间接的关系来进行关联，为了便于理解，暂定为规格表，和规格选项表, SKU规格信息表</p>
+</blockquote>
+</li>
+<li><p><code>product_specification </code>表<code>（SPU规格表）</code>，设置一个外键为SPU的主键，可以通过SPU主键查询到SPU规格有哪些。</p>
+<p>比如：演出门票的规格：日期，场次，购买票数量</p>
+<table>
+<thead>
+<tr>
+<th>spec_id（规格id）</th>
+<th>product_id（FK）</th>
+<th>spec_name（规格名称）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>场次</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>购买票数量</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>product_spec_option</code> 表 （规格选项表），将该选项表关联到SPU规格表，就能获取到SPU的规格和具体的选项。</p>
+<p>比如：日期有8.4、8.5、8.6；场次有上午场和下午场；购买票数有1、2</p>
+<table>
+<thead>
+<tr>
+<th>option_id（选项id）</th>
+<th>spec_id（FK）</th>
+<th>value（选项值）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>2022&#x2F;08&#x2F;04</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2022&#x2F;08&#x2F;05</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>20:00~21:30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>15:30~17:00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>sku_specification</code> 表（SKU规格信息）把SKU关联到规格选项表就能把SKU和SPU联系起来了</p>
+</li>
+</ol>
+<p><img src="/MySQL/image-20220804105804058.png" alt="image-20220804105804058"></p>
+<p>虽然SPU和SKU有一对多的关系，但是不能直接从SPU的具体配置找到对应的SKU商品</p>
+<p>所以流程为：</p>
+<p><font color="red">SPU —&gt; 找到SPU相应的商品规格 —&gt; 获取到具体规格具体选项 —&gt; 确定到唯一对应的SKU </font></p>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><h4 id="CROSS-JOIN"><a href="#CROSS-JOIN" class="headerlink" title="CROSS JOIN"></a>CROSS JOIN</h4><p>交叉连接。没有任何限制条件，结果为笛卡尔积。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"></span><br><span class="line"><span class="keyword">equals</span>:</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1, table2</span><br></pre></td></tr></table></figure>
+
+<p>产生的结果集为两个表各自个数的乘积</p>
+<h4 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h4><h3 id="去重-amp-记录总数"><a href="#去重-amp-记录总数" class="headerlink" title="去重 &amp; 记录总数"></a>去重 &amp; 记录总数</h3><ol>
+<li><p>使用<code>distinct</code>去重：适合查询整张表的总数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 统计领取过优惠券的用户总数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br><span class="line"></span><br><span class="line"># 每个用户领取过不止一张优惠券</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>group by</code> 分组去重：适合根据条件分组后查询每组的总数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查询每种券有多少人领取</span><br><span class="line"><span class="keyword">select</span> certificate_name, <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) </span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> certificate_id</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><ol>
+<li><p><code>You can’t specify target table for update in FROM clause</code></p>
+<p>【原因】：不能先select出同一表中的某些值，再update这个表(在同一语句中)。即不能依据某字段值做判断再来更新某字段值</p>
+<p>【解决】：将select出的结果再通过中间表select一遍</p>
+<p>eg：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 修改 userinfo 表里 age<span class="operator">=</span><span class="number">23</span> 的用户年龄为<span class="number">18</span></span><br><span class="line"></span><br><span class="line"># 错误</span><br><span class="line"><span class="keyword">update</span> userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> user_id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> user_id</span><br><span class="line">	<span class="keyword">from</span> userinfo</span><br><span class="line">	<span class="keyword">where</span> age<span class="operator">=</span><span class="number">23</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>Every derived table must have its own alias</code></p>
+<p>【原因】：在做<strong>多表查询</strong>，或者查询的时候<strong>产生新的表</strong>的时候会出现这个错误：Every derived table must have its own alias（<strong>每一个派生出来的表都必须有一个自己的别名</strong>）</p>
+<p>【解决】：<strong>给派生表加上别名即可</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 错误</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Poem/" rel="next" title="Poem">
+                <i class="fa fa-chevron-left"></i> Poem
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SVN/" rel="prev" title="SVN">
+                SVN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+              <!--
+                <a href="/archives/%7C%7C%20archive">        
+              -->       
+              <a href="/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-07-09"><span class="nav-number">1.</span> <span class="nav-text">2022.07~09</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">批量插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%A7%84%E6%A0%BC%E5%95%86%E5%93%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">多规格商品的数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">1.2.1.</span> <span class="nav-text">前置知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.3.</span> <span class="nav-text">联合查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CROSS-JOIN"><span class="nav-number">1.3.1.</span> <span class="nav-text">CROSS JOIN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#INNER-JOIN"><span class="nav-number">1.3.2.</span> <span class="nav-text">INNER JOIN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%87%8D-amp-%E8%AE%B0%E5%BD%95%E6%80%BB%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">去重 &amp; 记录总数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%99"><span class="nav-number">1.5.</span> <span class="nav-text">报错</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共9.5k字</span>
+</div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">consuela</span>
+
+  
+</div>
+<!--
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
