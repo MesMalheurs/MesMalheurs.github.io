@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux</title>
+    <url>/Linux/</url>
+    <content><![CDATA[<p>一些Linux终端命令问题</p>
+<span id="more"></span>
+
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">重启服务器：</span><br><span class="line">home -&gt; soft -&gt;tomcat8091 -&gt; bin</span><br><span class="line">./catalina.sh stop</span><br><span class="line">bin/catalina.sh stop</span><br><span class="line">ps -aux|grep java</span><br><span class="line">kill -9 线程号</span><br><span class="line">./catalina.sh stop</span><br><span class="line">./catalina.sh start</span><br><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
+
+<p>service、model、dao都生成了jar文件，发布的时候直接覆盖原jar文件</p>
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
+<li>保存并退出：esc -&gt; :wq</li>
+<li>vim中按组合键：<code>ctrl+s</code> 处于假死状态（锁屏快捷键），按 <code>ctrl+q</code> 退出锁屏</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo</title>
     <url>/Hexo/</url>
     <content><![CDATA[<p>hexo 相关问题</p>
@@ -36,27 +57,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux</title>
-    <url>/Linux/</url>
-    <content><![CDATA[<p>一些Linux终端命令问题</p>
-<span id="more"></span>
-
-<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">重启服务器：</span><br><span class="line">home -&gt; soft -&gt;tomcat8091 -&gt; bin</span><br><span class="line">./catalina.sh stop</span><br><span class="line">bin/catalina.sh stop</span><br><span class="line">ps -aux|grep java</span><br><span class="line">kill -9 线程号</span><br><span class="line">./catalina.sh stop</span><br><span class="line">./catalina.sh start</span><br><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
-
-<p>service、model、dao都生成了jar文件，发布的时候直接覆盖原jar文件</p>
-<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
-<li>保存并退出：esc -&gt; :wq</li>
-<li>vim中按组合键：<code>ctrl+s</code> 处于假死状态（锁屏快捷键），按 <code>ctrl+q</code> 退出锁屏</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -313,223 +313,84 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL</title>
-    <url>/MySQL/</url>
-    <content><![CDATA[<p>MySQL相关问题</p>
+    <title>Poem</title>
+    <url>/Poem/</url>
+    <content><![CDATA[<h2 id="卡瓦菲斯"><a href="#卡瓦菲斯" class="headerlink" title="卡瓦菲斯"></a>卡瓦菲斯</h2><blockquote>
+<p><strong>1903 年 12 月</strong></p>
+<p>即使我不能谈及我的爱——</p>
+<p>即使我不能说起你的头发、你的嘴唇、你的眼睛，</p>
+<p>保存在我心中的你的脸庞</p>
+<p>保存在我脑中的你的声音</p>
+<p>以及在我梦中升起的九月的日子</p>
+<p>仍然给我的言辞、我的句子以形状和色彩，</p>
+<p>无论我触及什么题材，表达什么思想。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Literature</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python</title>
+    <url>/Python/</url>
+    <content><![CDATA[<p>python 相关问题</p>
 <span id="more"></span>
 
-<h2 id="2022-07-09"><a href="#2022-07-09" class="headerlink" title="2022.07~09"></a>2022.07~09</h2><h3 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h3><p>批量插入verificationCode，需要使用certificateUserId来拼接verificationCode</p>
+
+
+<h2 id="数据库迁移问题"><a href="#数据库迁移问题" class="headerlink" title="数据库迁移问题"></a>数据库迁移问题</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ORM类		migration目录		  数据库</span><br><span class="line">	makemigrations		 migrate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">开发者正常操作，想要修改数据库，不能手动去改数据字段必须通过ORM类+2个命令执行</span><br><span class="line"></span><br><span class="line">situation1：直接去数据库删除了某一列</span><br><span class="line">	step1：在ORM类中删除字段</span><br><span class="line">	step2：执行makemigrations，migrations目录生成配置去删除N字段</span><br><span class="line">	step3：执行migrate命令【报错，要去删除N字段，但是数据库中没有这个字段】</span><br><span class="line">			python manage.py migrate --fake</span><br><span class="line">			</span><br><span class="line">总结：</span><br><span class="line">	1. 三方保持一致，所有行为都是从ORM类开始。</span><br><span class="line">	2. migrate --fake使三方一致</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><ul>
+<li>运行redis【D:\redis】</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd D:\redis</span><br><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Celery"><a href="#Celery" class="headerlink" title="Celery"></a>Celery</h2><ul>
+<li><p>启动：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">celery worker: celery worker -A SelfStudy -l info -P eventlet</span><br><span class="line">django项目: 	  python manage.py runserver</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="django中应用celery"><a href="#django中应用celery" class="headerlink" title="django中应用celery"></a>django中应用celery</h4><p>之后，需要按照django-celery的要求进行编写代码。</p>
 <ul>
-<li><p><code>CONCAT()</code>函数：用于将两个或多个字符串拼接成一个字符串并返回</p>
-<p>语法：<code>CONCAT(str1, str2, ...)</code> 至少需要一个参数，如果任何参数为NULL，则该函数返回NULL值。</p>
+<li><p>第一步：【项目&#x2F;项目&#x2F;settings.py 】添加配置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">CELERY_BROKER_URL = <span class="string">&#x27;redis://192.168.16.85:6379&#x27;</span></span><br><span class="line">CELERY_ACCEPT_CONTENT = [<span class="string">&#x27;json&#x27;</span>]</span><br><span class="line">CELERY_RESULT_BACKEND = <span class="string">&#x27;redis://192.168.16.85:6379&#x27;</span></span><br><span class="line">CELERY_TASK_SERIALIZER = <span class="string">&#x27;json&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>CAST()</code>函数：用来转换类型</p>
-<p>语法：<code>CAST(字段名 as 转换的类型)</code>||<code>CAST (expression AS data_type)</code></p>
-<p>expression：任何有效的SQL Server表达式。<br>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。<br>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</p>
-<p>转换的类型：</p>
+<li><p>第二步：【项目&#x2F;项目&#x2F;celery.py】在项目同名目录创建 celery.py</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the default Django settings module for the &#x27;celery&#x27; program.</span></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;demos.settings&#x27;</span>)</span><br><span class="line"></span><br><span class="line">app = Celery(<span class="string">&#x27;demos&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using a string here means the worker doesn&#x27;t have to serialize</span></span><br><span class="line"><span class="comment"># the configuration object to child processes.</span></span><br><span class="line"><span class="comment"># - namespace=&#x27;CELERY&#x27; means all celery-related configuration keys</span></span><br><span class="line"><span class="comment">#   should have a `CELERY_` prefix.</span></span><br><span class="line">app.config_from_object(<span class="string">&#x27;django.conf:settings&#x27;</span>, namespace=<span class="string">&#x27;CELERY&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load task modules from all registered Django app configs.</span></span><br><span class="line"><span class="comment"># 去每个已注册app中读取 tasks.py 文件</span></span><br><span class="line">app.autodiscover_tasks()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三步，【项目&#x2F;app名称&#x2F;tasks.py】</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x * y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第四步，【项目&#x2F;项目&#x2F;<code>__init__.py</code>】</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"></span><br><span class="line">__all__ = (<span class="string">&#x27;celery_app&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动worker</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">进入项目目录</span><br><span class="line"></span><br><span class="line">celery worker -A demos -l info -P eventlet</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写视图函数，调用celery去创建任务。</p>
 <ul>
-<li>二进制，同带binary前缀的效果 : BINARY    </li>
-<li>字符型，可带参数 : CHAR()     </li>
-<li>日期 : DATE     </li>
-<li>时间: TIME     </li>
-<li>日期时间型 : DATETIME     </li>
-<li>浮点数 : DECIMAL      </li>
-<li>整数 : SIGNED     </li>
-<li>无符号整数 : UNSIGNED</li>
+<li><p>url</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url(<span class="string">r&#x27;^create/task/$&#x27;</span>, task.create_task),</span><br><span class="line">url(<span class="string">r&#x27;^get/result/$&#x27;</span>, task.get_result),</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>视图函数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> api.tasks <span class="keyword">import</span> x1</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_task</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;请求来了&#x27;</span>)</span><br><span class="line">    result = x1.delay(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;执行完毕&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(result.<span class="built_in">id</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_result</span>(<span class="params">request</span>):</span><br><span class="line">    nid = request.GET.get(<span class="string">&#x27;nid&#x27;</span>)</span><br><span class="line">    <span class="keyword">from</span> celery.result <span class="keyword">import</span> AsyncResult</span><br><span class="line">    <span class="comment"># from demos.celery import app</span></span><br><span class="line">    <span class="keyword">from</span> demos <span class="keyword">import</span> celery_app</span><br><span class="line">    result_object = AsyncResult(<span class="built_in">id</span>=nid, app=celery_app)</span><br><span class="line">    <span class="comment"># print(result_object.status)</span></span><br><span class="line">    data = result_object.get()</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(data)</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
+<li><p>启动django程序</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python manage.py ....</span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> eb_certificate_user</span><br><span class="line"><span class="keyword">SET</span> verification_code <span class="operator">=</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">null</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="多规格商品的数据库设计"><a href="#多规格商品的数据库设计" class="headerlink" title="多规格商品的数据库设计"></a>多规格商品的数据库设计</h3><p>项目需要做一个虚拟产品的数据库设计，涉及到多个规格</p>
-<p>比如：演出门票</p>
-<p><img src="/MySQL/image-20220804104928275.png" alt="image-20220804104928275"></p>
-<p>涉及：时间、场次、数量</p>
-<div><div class="fold_hider"><div class="close hider_title">查了几种方法：</div></div><div class="fold">
-<ol>
-<li>用大宽表，每当商品有新的属性就新增一个nullable字段。这样不同类型的记录，代码需要自己记得取哪些列。好处是编码简单；坏处是，每次都要加列，做DDL很烦，如果是生产库，运维上会很郁闷，而且直接看表，不太容易分清楚哪个列是给哪个类型的记录预备的，必须另外单独记录文档。</li>
-<li>表上增加一个json列（比如叫properties）每个类型数据特有的属性都塞这个json列里。在不直接支持json的db上，只能用varchar，然后业务代码自己解析这个json。如果在支持json的db上（比如mysql &gt; 5.7.10)，就稍微方便点，可以用json_extract之类的函数。此外一些ORM工具对json支持的不是很好，于是这个json到了object里就是string，需要额外处理。提一句mybatis通过挂一个type handler可以解决，还算容易。此方法的缺点是开发人员要管住json的schema，自己确保数据的合法性。</li>
-<li>将共性的字段放在一个主表里（比如product），此外给每种类型建立一个子表(xxx_product_part)维护特有的字段。这样结构比较清晰，但是每次查询需要引入join。每次增加一种新的类型的时候也要增加对应的新表。</li>
-<li>用主表 + 属性表。属性表就是一个大的kv（pid, key, value)。但问题是value的类型会很麻烦，毕竟可能需要字符串，整数，decimal，日期，时刻，enum等不同的类型。所以要不就是服务得自己搞这个解析转换工作，这时表就得定义为(pid, key, value_type, value_data)；要不就是挨个类型定义一列，上层自己取(pid, key, value_int, value_varchar, value_decimal, …)</li>
-<li>每种产品直接建立新表（xxx_product, yyy_product, …) 但这么干基本上就是在埋坑, 没人会这么干吧。</li>
-</ol>
-<p>如果经常增加产品的类型，可能方法2或者4会比较适合，避免每次都创建新列&#x2F;新表。并且会比较灵活（但管不好就会乱套）。</p>
-<p>如果产品类型增加的不是很频繁，方法1或者3会比较适合。</p>
-
-</div></div>
-
-
-
-<h4 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h4><ol>
-<li><p><strong>【SPU】</strong> &#x3D; Standard Product Unit （标准产品单位）</p>
-<p>SPU是商品信息聚合的最小单位，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。通俗点讲，属性值、特性相同的商品就可以称为一个SPU。</p>
-</li>
-<li><p><strong>【SKU】</strong> &#x3D; Stock Keeping Unit （库存量单位）</p>
-<p>SKU即库存进出计量的单位， 可以是以件、盒、托盘等为单位。</p>
-<p>SKU是物理上不可分割的最小存货单元。在使用时要根据不同业态，不同管理模式来处理。</p>
-</li>
-</ol>
-<p>回到演出门票商品：</p>
-<ul>
-<li><p>SPU：《恋爱的犀牛》演出门票</p>
-</li>
-<li><p>SKU[1]：268元一张的8月4号 20:00 - 21:30 的《恋爱的犀牛》演出门票</p>
-<p>SKU[2]：520元两张的8.4 20:00 - 21:30 的《恋爱的犀牛》演出门票（注意此时两张票为一个sku，所以规格中包含<code>购买票数量</code>）</p>
-</li>
-</ul>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以该门票为例：</p>
-<ol>
-<li><p><code>eb_product</code> 表<code>（SPU表）</code>，只记录SPU信息，不涉及任何具体规格配置</p>
-<table>
-<thead>
-<tr>
-<th>Product_id（商品id）</th>
-<th>Product_name（商品名称）</th>
-<th>shop_id（商家id）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>《恋爱的犀牛》演出门票</td>
-<td>1</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><code>product_sku</code> 表<code>（SKU表）</code>，里面具体到该商品的所有配置的具体ID，但不包括配置信息</p>
-<table>
-<thead>
-<tr>
-<th>sku_id</th>
-<th>sku_name（sku_名称）</th>
-<th>product_id（FK）</th>
-<th>stock</th>
-<th>sales</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>注意：</p>
-<blockquote>
-<p>SPU表和SKU表并不直接关联，还需要通过另外三张张表来关键，即通过间接的关系来进行关联，为了便于理解，暂定为规格表，和规格选项表, SKU规格信息表</p>
-</blockquote>
-</li>
-<li><p><code>product_specification </code>表<code>（SPU规格表）</code>，设置一个外键为SPU的主键，可以通过SPU主键查询到SPU规格有哪些。</p>
-<p>比如：演出门票的规格：日期，场次，购买票数量</p>
-<table>
-<thead>
-<tr>
-<th>spec_id（规格id）</th>
-<th>product_id（FK）</th>
-<th>spec_name（规格名称）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>日期</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>场次</td>
-</tr>
-<tr>
-<td>3</td>
-<td>1</td>
-<td>购买票数量</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><code>product_spec_option</code> 表 （规格选项表），将该选项表关联到SPU规格表，就能获取到SPU的规格和具体的选项。</p>
-<p>比如：日期有8.4、8.5、8.6；场次有上午场和下午场；购买票数有1、2</p>
-<table>
-<thead>
-<tr>
-<th>option_id（选项id）</th>
-<th>spec_id（FK）</th>
-<th>value（选项值）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>2022&#x2F;08&#x2F;04</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>2022&#x2F;08&#x2F;05</td>
-</tr>
-<tr>
-<td>3</td>
-<td>2</td>
-<td>20:00~21:30</td>
-</tr>
-<tr>
-<td>4</td>
-<td>2</td>
-<td>15:30~17:00</td>
-</tr>
-<tr>
-<td>5</td>
-<td>3</td>
-<td>1</td>
-</tr>
-<tr>
-<td>6</td>
-<td>3</td>
-<td>2</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><code>sku_specification</code> 表（SKU规格信息）把SKU关联到规格选项表就能把SKU和SPU联系起来了</p>
-</li>
-</ol>
-<p><img src="/MySQL/image-20220804105804058.png" alt="image-20220804105804058"></p>
-<p>虽然SPU和SKU有一对多的关系，但是不能直接从SPU的具体配置找到对应的SKU商品</p>
-<p>所以流程为：</p>
-<p><font color="red">SPU —&gt; 找到SPU相应的商品规格 —&gt; 获取到具体规格具体选项 —&gt; 确定到唯一对应的SKU </font></p>
-<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><h4 id="CROSS-JOIN"><a href="#CROSS-JOIN" class="headerlink" title="CROSS JOIN"></a>CROSS JOIN</h4><p>交叉连接。没有任何限制条件，结果为笛卡尔积。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"></span><br><span class="line"><span class="keyword">equals</span>:</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1, table2</span><br></pre></td></tr></table></figure>
-
-<p>产生的结果集为两个表各自个数的乘积</p>
-<h4 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h4><h3 id="去重-amp-记录总数"><a href="#去重-amp-记录总数" class="headerlink" title="去重 &amp; 记录总数"></a>去重 &amp; 记录总数</h3><ol>
-<li><p>使用<code>distinct</code>去重：适合查询整张表的总数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 统计领取过优惠券的用户总数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br><span class="line"></span><br><span class="line"># 每个用户领取过不止一张优惠券</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><code>group by</code> 分组去重：适合根据条件分组后查询每组的总数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查询每种券有多少人领取</span><br><span class="line"><span class="keyword">select</span> certificate_name, <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) </span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> certificate_id</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><ol>
-<li><p><code>You can’t specify target table for update in FROM clause</code></p>
-<p>【原因】：不能先select出同一表中的某些值，再update这个表(在同一语句中)。即不能依据某字段值做判断再来更新某字段值</p>
-<p>【解决】：将select出的结果再通过中间表select一遍</p>
-<p>eg：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 修改 userinfo 表里 age<span class="operator">=</span><span class="number">23</span> 的用户年龄为<span class="number">18</span></span><br><span class="line"></span><br><span class="line"># 错误</span><br><span class="line"><span class="keyword">update</span> userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> user_id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> user_id</span><br><span class="line">	<span class="keyword">from</span> userinfo</span><br><span class="line">	<span class="keyword">where</span> age<span class="operator">=</span><span class="number">23</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><code>Every derived table must have its own alias</code></p>
-<p>【原因】：在做<strong>多表查询</strong>，或者查询的时候<strong>产生新的表</strong>的时候会出现这个错误：Every derived table must have its own alias（<strong>每一个派生出来的表都必须有一个自己的别名</strong>）</p>
-<p>【解决】：<strong>给派生表加上别名即可</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 错误</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ol>
 ]]></content>
       <categories>
         <category>Expertise</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -975,84 +836,223 @@
       </tags>
   </entry>
   <entry>
-    <title>Poem</title>
-    <url>/Poem/</url>
-    <content><![CDATA[<h2 id="卡瓦菲斯"><a href="#卡瓦菲斯" class="headerlink" title="卡瓦菲斯"></a>卡瓦菲斯</h2><blockquote>
-<p><strong>1903 年 12 月</strong></p>
-<p>即使我不能谈及我的爱——</p>
-<p>即使我不能说起你的头发、你的嘴唇、你的眼睛，</p>
-<p>保存在我心中的你的脸庞</p>
-<p>保存在我脑中的你的声音</p>
-<p>以及在我梦中升起的九月的日子</p>
-<p>仍然给我的言辞、我的句子以形状和色彩，</p>
-<p>无论我触及什么题材，表达什么思想。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Literature</category>
-      </categories>
-      <tags>
-        <tag>Poem</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python</title>
-    <url>/Python/</url>
-    <content><![CDATA[<p>python 相关问题</p>
+    <title>MySQL</title>
+    <url>/MySQL/</url>
+    <content><![CDATA[<p>MySQL相关问题</p>
 <span id="more"></span>
 
-
-
-<h2 id="数据库迁移问题"><a href="#数据库迁移问题" class="headerlink" title="数据库迁移问题"></a>数据库迁移问题</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ORM类		migration目录		  数据库</span><br><span class="line">	makemigrations		 migrate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">开发者正常操作，想要修改数据库，不能手动去改数据字段必须通过ORM类+2个命令执行</span><br><span class="line"></span><br><span class="line">situation1：直接去数据库删除了某一列</span><br><span class="line">	step1：在ORM类中删除字段</span><br><span class="line">	step2：执行makemigrations，migrations目录生成配置去删除N字段</span><br><span class="line">	step3：执行migrate命令【报错，要去删除N字段，但是数据库中没有这个字段】</span><br><span class="line">			python manage.py migrate --fake</span><br><span class="line">			</span><br><span class="line">总结：</span><br><span class="line">	1. 三方保持一致，所有行为都是从ORM类开始。</span><br><span class="line">	2. migrate --fake使三方一致</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><ul>
-<li>运行redis【D:\redis】</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd D:\redis</span><br><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Celery"><a href="#Celery" class="headerlink" title="Celery"></a>Celery</h2><ul>
-<li><p>启动：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">celery worker: celery worker -A SelfStudy -l info -P eventlet</span><br><span class="line">django项目: 	  python manage.py runserver</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="django中应用celery"><a href="#django中应用celery" class="headerlink" title="django中应用celery"></a>django中应用celery</h4><p>之后，需要按照django-celery的要求进行编写代码。</p>
+<h2 id="2022-07-09"><a href="#2022-07-09" class="headerlink" title="2022.07~09"></a>2022.07~09</h2><h3 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h3><p>批量插入verificationCode，需要使用certificateUserId来拼接verificationCode</p>
 <ul>
-<li><p>第一步：【项目&#x2F;项目&#x2F;settings.py 】添加配置</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">CELERY_BROKER_URL = <span class="string">&#x27;redis://192.168.16.85:6379&#x27;</span></span><br><span class="line">CELERY_ACCEPT_CONTENT = [<span class="string">&#x27;json&#x27;</span>]</span><br><span class="line">CELERY_RESULT_BACKEND = <span class="string">&#x27;redis://192.168.16.85:6379&#x27;</span></span><br><span class="line">CELERY_TASK_SERIALIZER = <span class="string">&#x27;json&#x27;</span></span><br></pre></td></tr></table></figure>
+<li><p><code>CONCAT()</code>函数：用于将两个或多个字符串拼接成一个字符串并返回</p>
+<p>语法：<code>CONCAT(str1, str2, ...)</code> 至少需要一个参数，如果任何参数为NULL，则该函数返回NULL值。</p>
 </li>
-<li><p>第二步：【项目&#x2F;项目&#x2F;celery.py】在项目同名目录创建 celery.py</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the default Django settings module for the &#x27;celery&#x27; program.</span></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;demos.settings&#x27;</span>)</span><br><span class="line"></span><br><span class="line">app = Celery(<span class="string">&#x27;demos&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using a string here means the worker doesn&#x27;t have to serialize</span></span><br><span class="line"><span class="comment"># the configuration object to child processes.</span></span><br><span class="line"><span class="comment"># - namespace=&#x27;CELERY&#x27; means all celery-related configuration keys</span></span><br><span class="line"><span class="comment">#   should have a `CELERY_` prefix.</span></span><br><span class="line">app.config_from_object(<span class="string">&#x27;django.conf:settings&#x27;</span>, namespace=<span class="string">&#x27;CELERY&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load task modules from all registered Django app configs.</span></span><br><span class="line"><span class="comment"># 去每个已注册app中读取 tasks.py 文件</span></span><br><span class="line">app.autodiscover_tasks()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第三步，【项目&#x2F;app名称&#x2F;tasks.py】</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x * y</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第四步，【项目&#x2F;项目&#x2F;<code>__init__.py</code>】</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"></span><br><span class="line">__all__ = (<span class="string">&#x27;celery_app&#x27;</span>,)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动worker</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">进入项目目录</span><br><span class="line"></span><br><span class="line">celery worker -A demos -l info -P eventlet</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编写视图函数，调用celery去创建任务。</p>
+<li><p><code>CAST()</code>函数：用来转换类型</p>
+<p>语法：<code>CAST(字段名 as 转换的类型)</code>||<code>CAST (expression AS data_type)</code></p>
+<p>expression：任何有效的SQL Server表达式。<br>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。<br>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</p>
+<p>转换的类型：</p>
 <ul>
-<li><p>url</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url(<span class="string">r&#x27;^create/task/$&#x27;</span>, task.create_task),</span><br><span class="line">url(<span class="string">r&#x27;^get/result/$&#x27;</span>, task.get_result),</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>视图函数</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> api.tasks <span class="keyword">import</span> x1</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_task</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;请求来了&#x27;</span>)</span><br><span class="line">    result = x1.delay(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;执行完毕&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(result.<span class="built_in">id</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_result</span>(<span class="params">request</span>):</span><br><span class="line">    nid = request.GET.get(<span class="string">&#x27;nid&#x27;</span>)</span><br><span class="line">    <span class="keyword">from</span> celery.result <span class="keyword">import</span> AsyncResult</span><br><span class="line">    <span class="comment"># from demos.celery import app</span></span><br><span class="line">    <span class="keyword">from</span> demos <span class="keyword">import</span> celery_app</span><br><span class="line">    result_object = AsyncResult(<span class="built_in">id</span>=nid, app=celery_app)</span><br><span class="line">    <span class="comment"># print(result_object.status)</span></span><br><span class="line">    data = result_object.get()</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(data)</span><br></pre></td></tr></table></figure></li>
+<li>二进制，同带binary前缀的效果 : BINARY    </li>
+<li>字符型，可带参数 : CHAR()     </li>
+<li>日期 : DATE     </li>
+<li>时间: TIME     </li>
+<li>日期时间型 : DATETIME     </li>
+<li>浮点数 : DECIMAL      </li>
+<li>整数 : SIGNED     </li>
+<li>无符号整数 : UNSIGNED</li>
 </ul>
 </li>
-<li><p>启动django程序</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python manage.py ....</span><br></pre></td></tr></table></figure></li>
 </ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> eb_certificate_user</span><br><span class="line"><span class="keyword">SET</span> verification_code <span class="operator">=</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">null</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="多规格商品的数据库设计"><a href="#多规格商品的数据库设计" class="headerlink" title="多规格商品的数据库设计"></a>多规格商品的数据库设计</h3><p>项目需要做一个虚拟产品的数据库设计，涉及到多个规格</p>
+<p>比如：演出门票</p>
+<p><img src="/MySQL/image-20220804104928275.png" alt="image-20220804104928275"></p>
+<p>涉及：时间、场次、数量</p>
+<div><div class="fold_hider"><div class="close hider_title">查了几种方法：</div></div><div class="fold">
+<ol>
+<li>用大宽表，每当商品有新的属性就新增一个nullable字段。这样不同类型的记录，代码需要自己记得取哪些列。好处是编码简单；坏处是，每次都要加列，做DDL很烦，如果是生产库，运维上会很郁闷，而且直接看表，不太容易分清楚哪个列是给哪个类型的记录预备的，必须另外单独记录文档。</li>
+<li>表上增加一个json列（比如叫properties）每个类型数据特有的属性都塞这个json列里。在不直接支持json的db上，只能用varchar，然后业务代码自己解析这个json。如果在支持json的db上（比如mysql &gt; 5.7.10)，就稍微方便点，可以用json_extract之类的函数。此外一些ORM工具对json支持的不是很好，于是这个json到了object里就是string，需要额外处理。提一句mybatis通过挂一个type handler可以解决，还算容易。此方法的缺点是开发人员要管住json的schema，自己确保数据的合法性。</li>
+<li>将共性的字段放在一个主表里（比如product），此外给每种类型建立一个子表(xxx_product_part)维护特有的字段。这样结构比较清晰，但是每次查询需要引入join。每次增加一种新的类型的时候也要增加对应的新表。</li>
+<li>用主表 + 属性表。属性表就是一个大的kv（pid, key, value)。但问题是value的类型会很麻烦，毕竟可能需要字符串，整数，decimal，日期，时刻，enum等不同的类型。所以要不就是服务得自己搞这个解析转换工作，这时表就得定义为(pid, key, value_type, value_data)；要不就是挨个类型定义一列，上层自己取(pid, key, value_int, value_varchar, value_decimal, …)</li>
+<li>每种产品直接建立新表（xxx_product, yyy_product, …) 但这么干基本上就是在埋坑, 没人会这么干吧。</li>
+</ol>
+<p>如果经常增加产品的类型，可能方法2或者4会比较适合，避免每次都创建新列&#x2F;新表。并且会比较灵活（但管不好就会乱套）。</p>
+<p>如果产品类型增加的不是很频繁，方法1或者3会比较适合。</p>
+
+</div></div>
+
+
+
+<h4 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h4><ol>
+<li><p><strong>【SPU】</strong> &#x3D; Standard Product Unit （标准产品单位）</p>
+<p>SPU是商品信息聚合的最小单位，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。通俗点讲，属性值、特性相同的商品就可以称为一个SPU。</p>
+</li>
+<li><p><strong>【SKU】</strong> &#x3D; Stock Keeping Unit （库存量单位）</p>
+<p>SKU即库存进出计量的单位， 可以是以件、盒、托盘等为单位。</p>
+<p>SKU是物理上不可分割的最小存货单元。在使用时要根据不同业态，不同管理模式来处理。</p>
+</li>
+</ol>
+<p>回到演出门票商品：</p>
+<ul>
+<li><p>SPU：《恋爱的犀牛》演出门票</p>
+</li>
+<li><p>SKU[1]：268元一张的8月4号 20:00 - 21:30 的《恋爱的犀牛》演出门票</p>
+<p>SKU[2]：520元两张的8.4 20:00 - 21:30 的《恋爱的犀牛》演出门票（注意此时两张票为一个sku，所以规格中包含<code>购买票数量</code>）</p>
+</li>
+</ul>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以该门票为例：</p>
+<ol>
+<li><p><code>eb_product</code> 表<code>（SPU表）</code>，只记录SPU信息，不涉及任何具体规格配置</p>
+<table>
+<thead>
+<tr>
+<th>Product_id（商品id）</th>
+<th>Product_name（商品名称）</th>
+<th>shop_id（商家id）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>《恋爱的犀牛》演出门票</td>
+<td>1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>product_sku</code> 表<code>（SKU表）</code>，里面具体到该商品的所有配置的具体ID，但不包括配置信息</p>
+<table>
+<thead>
+<tr>
+<th>sku_id</th>
+<th>sku_name（sku_名称）</th>
+<th>product_id（FK）</th>
+<th>stock</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<blockquote>
+<p>SPU表和SKU表并不直接关联，还需要通过另外三张张表来关键，即通过间接的关系来进行关联，为了便于理解，暂定为规格表，和规格选项表, SKU规格信息表</p>
+</blockquote>
+</li>
+<li><p><code>product_specification </code>表<code>（SPU规格表）</code>，设置一个外键为SPU的主键，可以通过SPU主键查询到SPU规格有哪些。</p>
+<p>比如：演出门票的规格：日期，场次，购买票数量</p>
+<table>
+<thead>
+<tr>
+<th>spec_id（规格id）</th>
+<th>product_id（FK）</th>
+<th>spec_name（规格名称）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>场次</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>购买票数量</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>product_spec_option</code> 表 （规格选项表），将该选项表关联到SPU规格表，就能获取到SPU的规格和具体的选项。</p>
+<p>比如：日期有8.4、8.5、8.6；场次有上午场和下午场；购买票数有1、2</p>
+<table>
+<thead>
+<tr>
+<th>option_id（选项id）</th>
+<th>spec_id（FK）</th>
+<th>value（选项值）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>2022&#x2F;08&#x2F;04</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2022&#x2F;08&#x2F;05</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>20:00~21:30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>15:30~17:00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>sku_specification</code> 表（SKU规格信息）把SKU关联到规格选项表就能把SKU和SPU联系起来了</p>
+</li>
+</ol>
+<p><img src="/MySQL/image-20220804105804058.png" alt="image-20220804105804058"></p>
+<p>虽然SPU和SKU有一对多的关系，但是不能直接从SPU的具体配置找到对应的SKU商品</p>
+<p>所以流程为：</p>
+<p><font color="red">SPU —&gt; 找到SPU相应的商品规格 —&gt; 获取到具体规格具体选项 —&gt; 确定到唯一对应的SKU </font></p>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><h4 id="CROSS-JOIN"><a href="#CROSS-JOIN" class="headerlink" title="CROSS JOIN"></a>CROSS JOIN</h4><p>交叉连接。没有任何限制条件，结果为笛卡尔积。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"></span><br><span class="line"><span class="keyword">equals</span>:</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1, table2</span><br></pre></td></tr></table></figure>
+
+<p>产生的结果集为两个表各自个数的乘积</p>
+<h4 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h4><h3 id="去重-amp-记录总数"><a href="#去重-amp-记录总数" class="headerlink" title="去重 &amp; 记录总数"></a>去重 &amp; 记录总数</h3><ol>
+<li><p>使用<code>distinct</code>去重：适合查询整张表的总数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 统计领取过优惠券的用户总数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br><span class="line"></span><br><span class="line"># 每个用户领取过不止一张优惠券</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>group by</code> 分组去重：适合根据条件分组后查询每组的总数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查询每种券有多少人领取</span><br><span class="line"><span class="keyword">select</span> certificate_name, <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) </span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> certificate_id</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><ol>
+<li><p><code>You can’t specify target table for update in FROM clause</code></p>
+<p>【原因】：不能先select出同一表中的某些值，再update这个表(在同一语句中)。即不能依据某字段值做判断再来更新某字段值</p>
+<p>【解决】：将select出的结果再通过中间表select一遍</p>
+<p>eg：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 修改 userinfo 表里 age<span class="operator">=</span><span class="number">23</span> 的用户年龄为<span class="number">18</span></span><br><span class="line"></span><br><span class="line"># 错误</span><br><span class="line"><span class="keyword">update</span> userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> user_id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> user_id</span><br><span class="line">	<span class="keyword">from</span> userinfo</span><br><span class="line">	<span class="keyword">where</span> age<span class="operator">=</span><span class="number">23</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>Every derived table must have its own alias</code></p>
+<p>【原因】：在做<strong>多表查询</strong>，或者查询的时候<strong>产生新的表</strong>的时候会出现这个错误：Every derived table must have its own alias（<strong>每一个派生出来的表都必须有一个自己的别名</strong>）</p>
+<p>【解决】：<strong>给派生表加上别名即可</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 错误</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
         <category>Expertise</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>

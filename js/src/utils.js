@@ -114,28 +114,6 @@ NexT.utils = NexT.$u = {
     });
   },
 
-  registerSidebarTOC: function() {
-    const navItems = document.querySelectorAll('.post-toc li');
-    const sections = [...navItems].map(element => {
-      var link = element.querySelector('a.nav-link');
-   var target = document.getElementById(decodeURI(link.getAttribute('href')).replace('#', ''));
-      // TOC item animation navigate.
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        //var target = document.getElementById(event.currentTarget.getAttribute('href').replace('#', ''));
-        var offset = target.getBoundingClientRect().top + window.scrollY;
-        window.anime({
-          targets  : document.scrollingElement,
-          duration : 500,
-          easing   : 'linear',
-          scrollTop: offset + 10
-        });
-      });
-      //return document.getElementById(link.getAttribute('href').replace('#', ''));
-      return target;
-    });
-  },
-
   /**
    * Transform embedded video to support responsive layout.
    * @see http://toddmotto.com/fluid-and-responsive-youtube-and-vimeo-videos-with-fluidvids-js/
