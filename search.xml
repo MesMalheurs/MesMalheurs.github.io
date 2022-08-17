@@ -1149,6 +1149,17 @@
 <p>​	<code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=\</code> 值后面加”<code>,*</code>“</p>
 <p>​	或者下面这样：</p>
 <p>​	<code>tomcat.util.scan.StandardJarScanFilter.jarsToSkip=,*</code></p>
+<p>但是这种方法会出现一个<a href="#%E6%97%A0%E6%B3%95%E5%9C%A8web.xml%E6%88%96%E4%BD%BF%E7%94%A8%E6%AD%A4%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E9%83%A8%E7%BD%B2%E7%9A%84jar%E6%96%87%E4%BB%B6%E4%B8%AD%E8%A7%A3%E6%9E%90%E7%BB%9D%E5%AF%B9uri:%5Bhttp://java.sun.com/jsp/jstl/core%5D">新的问题</a></p>
+<h3 id="项目启动报404错误"><a href="#项目启动报404错误" class="headerlink" title="项目启动报404错误"></a>项目启动报404错误</h3><p><code>The requested resource is not available.</code></p>
+<p>所请求的资源不可用。</p>
+<p>既然是请求资源问题，而IDEA又是通过先将项目打包成war包，然后创建一个Tomcat，将war进行加载的方式来启动项目，那么我们就可以猜测到，这个请求资源不可用的问题就一定是出现在打包war包的过程中，或是在Tomcat加载这个war包的时候出现的问题。除了这个两个可能，还有一种可能，就是项目是SVN项目，但是SVN的路径已经不可用。</p>
+<p>注意：tomcat配置的时候，URL设置的是项目的默认访问路径，Application context设置的是工程路径，工程路径需要和默认访问路径相对应，否则也会出现404，找不到资源的情况。</p>
+<h3 id="war包和war-exploded区别"><a href="#war包和war-exploded区别" class="headerlink" title="war包和war exploded区别"></a>war包和war exploded区别</h3><p>war包和war exploded的区别：<br><strong>war exploded支持热部署</strong>，它的本质是直接将项目文件夹移到Tomcat 部署文件夹里面去。</p>
+<h3 id="无法在web-xml或使用此应用程序部署的jar文件中解析绝对uri-http-java-sun-com-jsp-jstl-core"><a href="#无法在web-xml或使用此应用程序部署的jar文件中解析绝对uri-http-java-sun-com-jsp-jstl-core" class="headerlink" title="无法在web.xml或使用此应用程序部署的jar文件中解析绝对uri:[http://java.sun.com/jsp/jstl/core]"></a>无法在web.xml或使用此应用程序部署的jar文件中解析绝对uri:[<a href="http://java.sun.com/jsp/jstl/core]">http://java.sun.com/jsp/jstl/core]</a></h3><p>tomcat配置文件中的<code>conf/catalina.properties</code>文件中的</p>
+<p><code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=*.jar</code></p>
+<p>将其改为</p>
+<p><code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=/</code></p>
+<p>就可以正常使用了。</p>
 ]]></content>
       <categories>
         <category>Configuration</category>
