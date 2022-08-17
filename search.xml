@@ -573,6 +573,42 @@
 
 </div></div>
 
+
+
+<div><div class="fold_hider"><div class="close hider_title">Trophies</div></div><div class="fold">
+<h2 id="Trophies"><a href="#Trophies" class="headerlink" title="Trophies"></a>Trophies</h2><h3 id="MindMap-Trophies"><a href="#MindMap-Trophies" class="headerlink" title="MindMap - Trophies"></a>MindMap - Trophies</h3><div class="markmap-container" style="height:300px">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;Trophies&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;Para.1 引出话题：许多比赛都设有安慰奖，对孩子自尊心有利有弊&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;Para.2 参与奖存在已久，但最近收到抨击，被认为对孩子的成长不利&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;Para.3 帕戈内认为参与奖可以肯定失败者的能力以及加强参与者的体育精神&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Para.4 增加孩子自信的真正方式在于与他们交流&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;Para.5 这个系统创造了一个由表面好处和赞赏所驱动的反馈循环&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;Para.6 正强化对儿童和成人都有利&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;Para.7 参与奖应该和沟通对话结合起来&quot;}]}"></svg>
+</div>
+
+
+<h3 id="Phrase-amp-Practice-Trophies"><a href="#Phrase-amp-Practice-Trophies" class="headerlink" title="Phrase &amp; Practice - Trophies"></a>Phrase &amp; Practice - Trophies</h3><p><code>crucial</code>：somthing that is crucial is extremely important, because everything else depends on it. 至关重要的，关键性的</p>
+<p>类似表达：</p>
+<ul>
+<li><p><code>vital</code>：extremely important and necessary for something to succeed or exist</p>
+</li>
+<li><p><code>critical</code>：somthing that is critical is very important because what happens in the future depends on it. </p>
+<ul>
+<li>常用搭配：<code>be critical to</code>、<code>be of critical importance</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 这些谈判对和平进程的前景至关重要</span><br><span class="line">	These talks are critical to the future of the peace process.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>pivotal</code>：of great importance because other things depend on it.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 在过渡时期发挥关键性作用</span><br><span class="line">	play a pivotal role in the transitional process. </span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>paramount</code>：more important than anything else</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 最重要的是孩子的权益</span><br><span class="line">	the interests of the child are of paramount importance.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>保护热带雨林至关重要。</p>
+<p>Protecting rainforest is of paramount importance.</p>
+</li>
+<li><p>外贸对经济而言非常重要。</p>
+<p>Foreign trade is critical to the economy.</p>
+</li>
+</ol>
+
+</div></div>
+
 <hr>
 
 <h1 id="Week32"><a href="#Week32" class="headerlink" title="Week32"></a>Week32</h1>
@@ -939,6 +975,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Poem</title>
+    <url>/Poem/</url>
+    <content><![CDATA[<h2 id="卡瓦菲斯"><a href="#卡瓦菲斯" class="headerlink" title="卡瓦菲斯"></a>卡瓦菲斯</h2><blockquote>
+<p><strong>1903 年 12 月</strong></p>
+<p>即使我不能谈及我的爱——</p>
+<p>即使我不能说起你的头发、你的嘴唇、你的眼睛，</p>
+<p>保存在我心中的你的脸庞</p>
+<p>保存在我脑中的你的声音</p>
+<p>以及在我梦中升起的九月的日子</p>
+<p>仍然给我的言辞、我的句子以形状和色彩，</p>
+<p>无论我触及什么题材，表达什么思想。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Literature</category>
+      </categories>
+      <tags>
+        <tag>Poem</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python</title>
     <url>/Python/</url>
     <content><![CDATA[<p>python 相关问题</p>
@@ -996,27 +1053,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Poem</title>
-    <url>/Poem/</url>
-    <content><![CDATA[<h2 id="卡瓦菲斯"><a href="#卡瓦菲斯" class="headerlink" title="卡瓦菲斯"></a>卡瓦菲斯</h2><blockquote>
-<p><strong>1903 年 12 月</strong></p>
-<p>即使我不能谈及我的爱——</p>
-<p>即使我不能说起你的头发、你的嘴唇、你的眼睛，</p>
-<p>保存在我心中的你的脸庞</p>
-<p>保存在我脑中的你的声音</p>
-<p>以及在我梦中升起的九月的日子</p>
-<p>仍然给我的言辞、我的句子以形状和色彩，</p>
-<p>无论我触及什么题材，表达什么思想。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Literature</category>
-      </categories>
-      <tags>
-        <tag>Poem</tag>
       </tags>
   </entry>
   <entry>
@@ -1099,6 +1135,20 @@
 <li><p>maven 仓库有依赖包，但是 idea 构建、打包，install 或者执行 maven 插件的时候还是报上面那个错误，有可能是因为maven 对应的目录中存在一个的文件 <strong>_remote.repositories</strong>，把这个文件删除了即可。</p>
 </li>
 </ol>
+<h3 id="java-lang-IllegalArgumentException-找到多个名为spring-web的片段"><a href="#java-lang-IllegalArgumentException-找到多个名为spring-web的片段" class="headerlink" title="java.lang.IllegalArgumentException: 找到多个名为spring_web的片段"></a>java.lang.IllegalArgumentException: 找到多个名为spring_web的片段</h3><p>产生的原因有两点：</p>
+<p>1.依赖冲突，解决冲突就行。<br>2.spring的web包和webmvc包冲突，webmvc中包含了这个web的jar。</p>
+<p>【解决】：web.xml配置，直接在标签下方添加标签</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">display-name</span>&gt;</span><span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"># 新增：</span><br><span class="line"><span class="tag">&lt;<span class="name">absolute-ordering</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="java-lang-IllegalStateException-ContainerBase-addChild-start-org-apache-catalina-LifecycleException"><a href="#java-lang-IllegalStateException-ContainerBase-addChild-start-org-apache-catalina-LifecycleException" class="headerlink" title="java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException"></a>java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException</h3><p>【原因】：application启动类中嵌入的tomcat与部署war的tomcat冲突引发的，需要在pom.xml添加配置，来避免冲突</p>
+<p>【解决】：Tomcat 配置文件中</p>
+<p>​	<code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=\</code> 值后面加”<code>,*</code>“</p>
+<p>​	或者下面这样：</p>
+<p>​	<code>tomcat.util.scan.StandardJarScanFilter.jarsToSkip=,*</code></p>
 ]]></content>
       <categories>
         <category>Configuration</category>
