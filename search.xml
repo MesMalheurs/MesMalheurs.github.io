@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux</title>
-    <url>/Linux/</url>
-    <content><![CDATA[<p>一些Linux终端命令问题</p>
-<span id="more"></span>
-
-<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">重启服务器：</span><br><span class="line">home -&gt; soft -&gt;tomcat8091 -&gt; bin</span><br><span class="line">./catalina.sh stop</span><br><span class="line">bin/catalina.sh stop</span><br><span class="line">ps -aux|grep java</span><br><span class="line">kill -9 线程号</span><br><span class="line">./catalina.sh stop</span><br><span class="line">./catalina.sh start</span><br><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
-
-<p>service、model、dao都生成了jar文件，发布的时候直接覆盖原jar文件</p>
-<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
-<li>保存并退出：esc -&gt; :wq</li>
-<li>vim中按组合键：<code>ctrl+s</code> 处于假死状态（锁屏快捷键），按 <code>ctrl+q</code> 退出锁屏</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo</title>
     <url>/Hexo/</url>
     <content><![CDATA[<p>hexo 相关问题</p>
@@ -36,6 +15,14 @@
 
 
 
+<h2 id="中文目录无法跳转"><a href="#中文目录无法跳转" class="headerlink" title="中文目录无法跳转"></a>中文目录无法跳转</h2><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>使用next5，文章左侧目录英文可以跳转，但是包含中文则不能，使用控制台查看了一下，是中文的超链接标签的href乱码。</p>
+<p>实际上直接点击这个超链接是可以跳转的，但是点目录却不行。这是因为标题 id 是中文，但是目录的连接是中文乱码，代码里头的 JQuery 选择器拿着乱码是没法找到对应 id 的标题的。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>控制台已经告诉我错误代码在 <code>post-details.js</code>里了，顺着提示找到 <code>themes\next\source\js\src\post-details.js</code>，找到第 73 行为目录绑定点击事件的方法，会看到：</p>
+<p><img src="D:\Blog\blog\source_posts\Hexo\image-20220817143302929.png" alt="image-20220817143302929"></p>
+<p><code>targetSelector</code>就是对应标题的 id，我们在他被塞到选择器之前重新编码一下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对获取到的url进行重编码</span></span><br><span class="line">targetSelector = <span class="built_in">decodeURI</span>(<span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;href&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>然后 <code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo s</code> 重新跑一下，发现目录就正常了。</p>
 <div><div class="fold_hider"><div class="close hider_title">QuickStart</div></div><div class="fold">
 <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
@@ -313,6 +300,247 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux</title>
+    <url>/Linux/</url>
+    <content><![CDATA[<p>一些Linux终端命令问题</p>
+<span id="more"></span>
+
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">重启服务器：</span><br><span class="line">home -&gt; soft -&gt;tomcat8091 -&gt; bin</span><br><span class="line">./catalina.sh stop</span><br><span class="line">bin/catalina.sh stop</span><br><span class="line">ps -aux|grep java</span><br><span class="line">kill -9 线程号</span><br><span class="line">./catalina.sh stop</span><br><span class="line">./catalina.sh start</span><br><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
+
+<p>service、model、dao都生成了jar文件，发布的时候直接覆盖原jar文件</p>
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
+<li>保存并退出：esc -&gt; :wq</li>
+<li>vim中按组合键：<code>ctrl+s</code> 处于假死状态（锁屏快捷键），按 <code>ctrl+q</code> 退出锁屏</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Configuration</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL</title>
+    <url>/MySQL/</url>
+    <content><![CDATA[<p>MySQL相关问题</p>
+<span id="more"></span>
+
+<h2 id="2022-07-09"><a href="#2022-07-09" class="headerlink" title="2022.07~09"></a>2022.07~09</h2><h3 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h3><p>批量插入verificationCode，需要使用certificateUserId来拼接verificationCode</p>
+<ul>
+<li><p><code>CONCAT()</code>函数：用于将两个或多个字符串拼接成一个字符串并返回</p>
+<p>语法：<code>CONCAT(str1, str2, ...)</code> 至少需要一个参数，如果任何参数为NULL，则该函数返回NULL值。</p>
+</li>
+<li><p><code>CAST()</code>函数：用来转换类型</p>
+<p>语法：<code>CAST(字段名 as 转换的类型)</code>||<code>CAST (expression AS data_type)</code></p>
+<p>expression：任何有效的SQL Server表达式。<br>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。<br>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</p>
+<p>转换的类型：</p>
+<ul>
+<li>二进制，同带binary前缀的效果 : BINARY    </li>
+<li>字符型，可带参数 : CHAR()     </li>
+<li>日期 : DATE     </li>
+<li>时间: TIME     </li>
+<li>日期时间型 : DATETIME     </li>
+<li>浮点数 : DECIMAL      </li>
+<li>整数 : SIGNED     </li>
+<li>无符号整数 : UNSIGNED</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> eb_certificate_user</span><br><span class="line"><span class="keyword">SET</span> verification_code <span class="operator">=</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">null</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="多规格商品的数据库设计"><a href="#多规格商品的数据库设计" class="headerlink" title="多规格商品的数据库设计"></a>多规格商品的数据库设计</h3><p>项目需要做一个虚拟产品的数据库设计，涉及到多个规格</p>
+<p>比如：演出门票</p>
+<p><img src="/MySQL/image-20220804104928275.png" alt="image-20220804104928275"></p>
+<p>涉及：时间、场次、数量</p>
+<div><div class="fold_hider"><div class="close hider_title">查了几种方法：</div></div><div class="fold">
+<ol>
+<li>用大宽表，每当商品有新的属性就新增一个nullable字段。这样不同类型的记录，代码需要自己记得取哪些列。好处是编码简单；坏处是，每次都要加列，做DDL很烦，如果是生产库，运维上会很郁闷，而且直接看表，不太容易分清楚哪个列是给哪个类型的记录预备的，必须另外单独记录文档。</li>
+<li>表上增加一个json列（比如叫properties）每个类型数据特有的属性都塞这个json列里。在不直接支持json的db上，只能用varchar，然后业务代码自己解析这个json。如果在支持json的db上（比如mysql &gt; 5.7.10)，就稍微方便点，可以用json_extract之类的函数。此外一些ORM工具对json支持的不是很好，于是这个json到了object里就是string，需要额外处理。提一句mybatis通过挂一个type handler可以解决，还算容易。此方法的缺点是开发人员要管住json的schema，自己确保数据的合法性。</li>
+<li>将共性的字段放在一个主表里（比如product），此外给每种类型建立一个子表(xxx_product_part)维护特有的字段。这样结构比较清晰，但是每次查询需要引入join。每次增加一种新的类型的时候也要增加对应的新表。</li>
+<li>用主表 + 属性表。属性表就是一个大的kv（pid, key, value)。但问题是value的类型会很麻烦，毕竟可能需要字符串，整数，decimal，日期，时刻，enum等不同的类型。所以要不就是服务得自己搞这个解析转换工作，这时表就得定义为(pid, key, value_type, value_data)；要不就是挨个类型定义一列，上层自己取(pid, key, value_int, value_varchar, value_decimal, …)</li>
+<li>每种产品直接建立新表（xxx_product, yyy_product, …) 但这么干基本上就是在埋坑, 没人会这么干吧。</li>
+</ol>
+<p>如果经常增加产品的类型，可能方法2或者4会比较适合，避免每次都创建新列&#x2F;新表。并且会比较灵活（但管不好就会乱套）。</p>
+<p>如果产品类型增加的不是很频繁，方法1或者3会比较适合。</p>
+
+</div></div>
+
+
+
+<h4 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h4><ol>
+<li><p><strong>【SPU】</strong> &#x3D; Standard Product Unit （标准产品单位）</p>
+<p>SPU是商品信息聚合的最小单位，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。通俗点讲，属性值、特性相同的商品就可以称为一个SPU。</p>
+</li>
+<li><p><strong>【SKU】</strong> &#x3D; Stock Keeping Unit （库存量单位）</p>
+<p>SKU即库存进出计量的单位， 可以是以件、盒、托盘等为单位。</p>
+<p>SKU是物理上不可分割的最小存货单元。在使用时要根据不同业态，不同管理模式来处理。</p>
+</li>
+</ol>
+<p>回到演出门票商品：</p>
+<ul>
+<li><p>SPU：《恋爱的犀牛》演出门票</p>
+</li>
+<li><p>SKU[1]：268元一张的8月4号 20:00 - 21:30 的《恋爱的犀牛》演出门票</p>
+<p>SKU[2]：520元两张的8.4 20:00 - 21:30 的《恋爱的犀牛》演出门票（注意此时两张票为一个sku，所以规格中包含<code>购买票数量</code>）</p>
+</li>
+</ul>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以该门票为例：</p>
+<ol>
+<li><p><code>eb_product</code> 表<code>（SPU表）</code>，只记录SPU信息，不涉及任何具体规格配置</p>
+<table>
+<thead>
+<tr>
+<th>Product_id（商品id）</th>
+<th>Product_name（商品名称）</th>
+<th>shop_id（商家id）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>《恋爱的犀牛》演出门票</td>
+<td>1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>product_sku</code> 表<code>（SKU表）</code>，里面具体到该商品的所有配置的具体ID，但不包括配置信息</p>
+<table>
+<thead>
+<tr>
+<th>sku_id</th>
+<th>sku_name（sku_名称）</th>
+<th>product_id（FK）</th>
+<th>stock</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<blockquote>
+<p>SPU表和SKU表并不直接关联，还需要通过另外三张张表来关键，即通过间接的关系来进行关联，为了便于理解，暂定为规格表，和规格选项表, SKU规格信息表</p>
+</blockquote>
+</li>
+<li><p><code>product_specification </code>表<code>（SPU规格表）</code>，设置一个外键为SPU的主键，可以通过SPU主键查询到SPU规格有哪些。</p>
+<p>比如：演出门票的规格：日期，场次，购买票数量</p>
+<table>
+<thead>
+<tr>
+<th>spec_id（规格id）</th>
+<th>product_id（FK）</th>
+<th>spec_name（规格名称）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>场次</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>购买票数量</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>product_spec_option</code> 表 （规格选项表），将该选项表关联到SPU规格表，就能获取到SPU的规格和具体的选项。</p>
+<p>比如：日期有8.4、8.5、8.6；场次有上午场和下午场；购买票数有1、2</p>
+<table>
+<thead>
+<tr>
+<th>option_id（选项id）</th>
+<th>spec_id（FK）</th>
+<th>value（选项值）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>2022&#x2F;08&#x2F;04</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2022&#x2F;08&#x2F;05</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>20:00~21:30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>15:30~17:00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>sku_specification</code> 表（SKU规格信息）把SKU关联到规格选项表就能把SKU和SPU联系起来了</p>
+</li>
+</ol>
+<p><img src="/MySQL/image-20220804105804058.png" alt="image-20220804105804058"></p>
+<p>虽然SPU和SKU有一对多的关系，但是不能直接从SPU的具体配置找到对应的SKU商品</p>
+<p>所以流程为：</p>
+<p><font color="red">SPU —&gt; 找到SPU相应的商品规格 —&gt; 获取到具体规格具体选项 —&gt; 确定到唯一对应的SKU </font></p>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><h4 id="CROSS-JOIN"><a href="#CROSS-JOIN" class="headerlink" title="CROSS JOIN"></a>CROSS JOIN</h4><p>交叉连接。没有任何限制条件，结果为笛卡尔积。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"></span><br><span class="line"><span class="keyword">equals</span>:</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1, table2</span><br></pre></td></tr></table></figure>
+
+<p>产生的结果集为两个表各自个数的乘积</p>
+<h4 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h4><h3 id="去重-amp-记录总数"><a href="#去重-amp-记录总数" class="headerlink" title="去重 &amp; 记录总数"></a>去重 &amp; 记录总数</h3><ol>
+<li><p>使用<code>distinct</code>去重：适合查询整张表的总数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 统计领取过优惠券的用户总数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br><span class="line"></span><br><span class="line"># 每个用户领取过不止一张优惠券</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>group by</code> 分组去重：适合根据条件分组后查询每组的总数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查询每种券有多少人领取</span><br><span class="line"><span class="keyword">select</span> certificate_name, <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) </span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> certificate_id</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><ol>
+<li><p><code>You can’t specify target table for update in FROM clause</code></p>
+<p>【原因】：不能先select出同一表中的某些值，再update这个表(在同一语句中)。即不能依据某字段值做判断再来更新某字段值</p>
+<p>【解决】：将select出的结果再通过中间表select一遍</p>
+<p>eg：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 修改 userinfo 表里 age<span class="operator">=</span><span class="number">23</span> 的用户年龄为<span class="number">18</span></span><br><span class="line"></span><br><span class="line"># 错误</span><br><span class="line"><span class="keyword">update</span> userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> user_id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> user_id</span><br><span class="line">	<span class="keyword">from</span> userinfo</span><br><span class="line">	<span class="keyword">where</span> age<span class="operator">=</span><span class="number">23</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>Every derived table must have its own alias</code></p>
+<p>【原因】：在做<strong>多表查询</strong>，或者查询的时候<strong>产生新的表</strong>的时候会出现这个错误：Every derived table must have its own alias（<strong>每一个派生出来的表都必须有一个自己的别名</strong>）</p>
+<p>【解决】：<strong>给派生表加上别名即可</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 错误</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Expertise</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Poem</title>
     <url>/Poem/</url>
     <content><![CDATA[<h2 id="卡瓦菲斯"><a href="#卡瓦菲斯" class="headerlink" title="卡瓦菲斯"></a>卡瓦菲斯</h2><blockquote>
@@ -398,6 +626,17 @@
     <url>/NewEnglish/</url>
     <content><![CDATA[<p>新英文杂志</p>
 <p>每周读几篇感兴趣的</p>
+<h1 id="Week34"><a href="#Week34" class="headerlink" title="Week34"></a>Week34</h1>
+
+	<div class="row">
+    <embed src="https://mesmalheurs.github.io/NewEnglish/Week34_20220820PDF.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<span id="more"></span>
+
 <h1 id="Week33"><a href="#Week33" class="headerlink" title="Week33"></a>Week33</h1>
 
 	<div class="row">
@@ -406,8 +645,6 @@
 
 
 
-
-<span id="more"></span>
 
 <div><div class="fold_hider"><div class="close hider_title">Masturbation</div></div><div class="fold">
 <h2 id="Masturbation"><a href="#Masturbation" class="headerlink" title="Masturbation"></a>Masturbation</h2><h3 id="MindMap-Masturbation"><a href="#MindMap-Masturbation" class="headerlink" title="MindMap - Masturbation"></a>MindMap - Masturbation</h3><div class="markmap-container" style="height:300px">
@@ -436,13 +673,13 @@
 
 
 
-<div><div class="fold_hider"><div class="close hider_title">Trophies</div></div><div class="fold">
-<h2 id="Trophies"><a href="#Trophies" class="headerlink" title="Trophies"></a>Trophies</h2><h3 id="MindMap-Trophies"><a href="#MindMap-Trophies" class="headerlink" title="MindMap - Trophies"></a>MindMap - Trophies</h3><div class="markmap-container" style="height:300px">
-  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;Trophies&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;Para.1 引出话题：许多比赛都设有安慰奖，对孩子自尊心有利有弊&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;Para.2 参与奖存在已久，但最近收到抨击，被认为对孩子的成长不利&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;Para.3 帕戈内认为参与奖可以肯定失败者的能力以及加强参与者的体育精神&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Para.4 增加孩子自信的真正方式在于与他们交流&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;Para.5 这个系统创造了一个由表面好处和赞赏所驱动的反馈循环&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;Para.6 正强化对儿童和成人都有利&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;Para.7 参与奖应该和沟通对话结合起来&quot;}]}"></svg>
+<div><div class="fold_hider"><div class="close hider_title">ParticipationTrophies</div></div><div class="fold">
+<h2 id="ParticipationTrophies"><a href="#ParticipationTrophies" class="headerlink" title="ParticipationTrophies"></a>ParticipationTrophies</h2><h3 id="MindMap-ParticipationTrophies"><a href="#MindMap-ParticipationTrophies" class="headerlink" title="MindMap - ParticipationTrophies"></a>MindMap - ParticipationTrophies</h3><div class="markmap-container" style="height:300px">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;Trophies&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;Para.1~2 参与奖历史悠久，近来就其利弊引发热议&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;Para.3~4 心理学家帕戈内认为参与奖对孩子的成长以及心理成熟具有积极强化作用&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;Para.5~6 不同人对于参与奖的不同态度，指出内在意愿的重要性，并表明过程的努力比结果更重要&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Para.7 以具体实例表明参与奖的合理性，再次表明与看护者的沟通交流对于青少年成长的重要意义&quot;}]}"></svg>
 </div>
 
 
-<h3 id="Phrase-amp-Practice-Trophies"><a href="#Phrase-amp-Practice-Trophies" class="headerlink" title="Phrase &amp; Practice - Trophies"></a>Phrase &amp; Practice - Trophies</h3><p><code>crucial</code>：somthing that is crucial is extremely important, because everything else depends on it. 至关重要的，关键性的</p>
+<h3 id="Phrase-amp-Practice-ParticipationTrophies"><a href="#Phrase-amp-Practice-ParticipationTrophies" class="headerlink" title="Phrase &amp; Practice - ParticipationTrophies"></a>Phrase &amp; Practice - ParticipationTrophies</h3><p><code>crucial</code>：somthing that is crucial is extremely important, because everything else depends on it. 至关重要的，关键性的</p>
 <p>类似表达：</p>
 <ul>
 <li><p><code>vital</code>：extremely important and necessary for something to succeed or exist</p>
@@ -461,14 +698,112 @@
 </ul>
 <ol>
 <li><p>保护热带雨林至关重要。</p>
-<p>Protecting rainforest is of paramount importance.</p>
+<p><del>Protecting rainforest</del> <font color="red">The conservation of tropical forests</font> is of paramount <font color="red">&#x2F; crucial</font> importance.</p>
 </li>
 <li><p>外贸对经济而言非常重要。</p>
-<p>Foreign trade is critical to the economy.</p>
+<p>Foreign trade is <font color="red">of </font>critical <font color="red">importance</font> to the economy.</p>
 </li>
 </ol>
 
 </div></div>
+
+
+
+<div><div class="fold_hider"><div class="close hider_title">Global</div></div><div class="fold">
+<h2 id="Global"><a href="#Global" class="headerlink" title="Global"></a>Global</h2><h3 id="MindMap-Global"><a href="#MindMap-Global" class="headerlink" title="MindMap - Global"></a>MindMap - Global</h3><div class="markmap-container" style="height:300px">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;Global&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;Para.1~3 引入：车祸数据引发民众担忧，科技公司应发展对于竞争的理解&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;Para. 4~12 AI发展应更全面考量&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;Para. 4~7 举例说明AI的负面影响&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Para. 8~9 不仅仅考虑法律义务&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;Para. 10 转移关注焦点&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;Para. 11~12 重新思考竞争的界限&quot;}]},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;Para. 13 结尾：科技公司应将伤害作为发展核心目标&quot;}]}"></svg>
+</div>
+
+
+<h3 id="Phrase-amp-Practice-Global"><a href="#Phrase-amp-Practice-Global" class="headerlink" title="Phrase &amp; Practice - Global"></a>Phrase &amp; Practice - Global</h3><p><code>lag behind</code>：to move or develop more slowly than others 落后[于]，拖后</p>
+<p>类似表达：</p>
+<ul>
+<li><p><code>fall behind</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 徒步半小时后，两个男孩已经落后了</span><br><span class="line">	After an hour into the hike, two of the boys had already fallen behind.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>drop behind</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 这艘船是如此缓慢，以至于远远落后于车队的其余部分。</span><br><span class="line">	The ship was so slow it dropped far behind the rest of the convoy.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>我们出门散步时，奶奶总是落在后头。</p>
+<p>Grandmather always dropped behind us when walking out.</p>
+<p>改：<font color="red">Grandma always lag behind when we go for a walk. </font></p>
+</li>
+<li><p>在这一方面，美国是要远远落后于大多数工业国家的。</p>
+<p><del>In this aspect,</del> America drops <font color="red">&#x2F; lags </font>far behind <del>al</del>most <del>industry</del><font color="red"> industrial</font> countries <font color="red"> in this respect</font>.</p>
+</li>
+</ol>
+
+</div></div>
+
+
+
+<div><div class="fold_hider"><div class="close hider_title">ExpirationDates</div></div><div class="fold">
+<h2 id="Expiration-Dates"><a href="#Expiration-Dates" class="headerlink" title="Expiration Dates"></a>Expiration Dates</h2><h3 id="MindMap-ExpirationDates"><a href="#MindMap-ExpirationDates" class="headerlink" title="MindMap - ExpirationDates"></a>MindMap - ExpirationDates</h3><div class="markmap-container" style="height:300px">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;ExpirationDates&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;Para.1 背景引入：家庭食物浪费难以管理应对&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;Para.2~6 应对方案1：食品零售商可以移除或重写日期标签，以避免消费者丢弃本可以食用的食物&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;Para.7 应对方案2：食品零售商可以出售散装食物，激励消费者按需购买&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Para.8~10 应对方案3：改变饮食文化和消费行为道阻且长但至关重要，致力于这一目标商业行动和科普项目不可或缺&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;Para.8 改变消费者的行为习惯是减少食物浪费的关键&quot;}]}]}"></svg>
+</div>
+
+
+<h3 id="Phrase-amp-Practice-ExpirationDates"><a href="#Phrase-amp-Practice-ExpirationDates" class="headerlink" title="Phrase &amp; Practice - ExpirationDates"></a>Phrase &amp; Practice - ExpirationDates</h3><p><code>ingrained</code>：表示[态度或行为]根深蒂固的，难以改变的</p>
+<p>类似表达：</p>
+<ul>
+<li><p><code>entrenched</code>：strongly established and not likely to change - often used to show disapproval 根深蒂固的（常含贬义）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 根深蒂固的大男子主义观念</span><br><span class="line">	a deeply entrenched belief in male superiority</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>established</code>：already in use or existing for a long period of time 早已确立的；早已投入使用的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 时至1969年，民权运动早已成为既定事实。</span><br><span class="line">	By 1969 the civil rights movement was already an established fact.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>deep-rooted (or deep-seated)</code>：a deep-rooted habit, idea, belief etc is so strong in a person or society that it is very difficult to change or destroy it. （习惯、观念、信仰等）根深蒂固的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 对律师根深蒂固的不信任</span><br><span class="line">	a deep-rooted suspicion of lawyers.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>人人都应该努力工作这个信念在我们的文化中根深蒂固。</p>
+<p>The idea that everyone should work hard is ingrained in our culture. </p>
+<p>改：<font color="red">The belief that one should work hard is ingrained in our culture. </font></p>
+</li>
+<li><p>根深蒂固的观点和信念持有如此强烈以至于很难改变。</p>
+<p>The idea is so deep-rooted that hard to change. </p>
+<p>改：<font color="red">Opinions and beliefd which are ingrained are so strongly held that they are difficult to change. </font></p>
+</li>
+</ol>
+
+</div></div>
+
+
+
+<div><div class="fold_hider"><div class="close hider_title">ThinkingHard</div></div><div class="fold">
+<h2 id="Thinking-Hard"><a href="#Thinking-Hard" class="headerlink" title="Thinking Hard"></a>Thinking Hard</h2><h3 id="MindMap-ThinkingHard"><a href="#MindMap-ThinkingHard" class="headerlink" title="MindMap - ThinkingHard"></a>MindMap - ThinkingHard</h3><div class="markmap-container" style="height:300px">
+  <svg data="{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:2,&quot;p&quot;:{&quot;lines&quot;:[1,2]},&quot;v&quot;:&quot;ThinkingHard&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[2,3]},&quot;v&quot;:&quot;Para.1~2 引出话题：认知疲劳及其生物学角度的机理解释（能量消耗导致）&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[3,4]},&quot;v&quot;:&quot;Para.3~4 新研究结果：认知疲劳可能是由于大脑的代谢变化&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:4,&quot;p&quot;:{&quot;lines&quot;:[4,5]},&quot;v&quot;:&quot;Para.5~8 研究过程及研究结果&quot;,&quot;c&quot;:[{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[5,6]},&quot;v&quot;:&quot;Para.5 实验：将参与者分为困难组和简单组分别完成任务&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[6,7]},&quot;v&quot;:&quot;Para.6 通过观察瞳孔放大时间，发现困难组参与者瞳孔扩张减少，意味着他们更疲劳&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[7,8]},&quot;v&quot;:&quot;Para.7 通过观察谷氨酸浓度，发现困难组参与者的大脑前额叶皮层积累了更高浓度的谷氨酸，意味着认知疲劳与谷氨酸的积累有关&quot;},{&quot;t&quot;:&quot;list_item&quot;,&quot;d&quot;:6,&quot;p&quot;:{&quot;lines&quot;:[8,9]},&quot;v&quot;:&quot;Para.8 认知疲劳的解决办法&quot;}]}]}"></svg>
+</div>
+
+
+<h3 id="Phrase-amp-Practice-ThinkingHard"><a href="#Phrase-amp-Practice-ThinkingHard" class="headerlink" title="Phrase &amp; Practice - ThinkingHard"></a>Phrase &amp; Practice - ThinkingHard</h3><p><code>be running on fumes</code>：to have almost reached a point where you are unable to continue, because you have almost no energy, money, etc. left 匹配不看，筋疲力尽，<font color="red">注意：该词组常用于进行时态</font>。</p>
+<p>类似表达：</p>
+<ul>
+<li><p><code>exhausted</code>: very tired</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 筋疲力尽的登山者由直升机营救出来。</span><br><span class="line">	The exhausted climbers were rescued by helicopter. </span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>be burnt/worn to a frazzle</code>：to be completely burnt&#x2F;extremely tired. 被烧成灰烬；筋疲力尽</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 她被自己愚蠢的演讲比赛搞得精疲力竭。</span><br><span class="line">	She&#x27;s burnt/worn to a frazzle with her silly speech competition.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>wear youself/sb. out </code>：to make yourself &#x2F; sb. feel very tired.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 孩子们简直把我烦透了。</span><br><span class="line">	The kids have totally worn me out.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>be tired/worn out</code>：very tired.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eg: 他们又冷又饿，疲惫不堪。</span><br><span class="line">	They were cold, hungry and tired out.</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>每天晚上下班后，我都要花4小时粉刷房子，现在我真的精疲力尽了。</p>
+<p><font color="red">I’ve been painting the house for four hours every night after work, and I am seriously running on fumes at this point. </font></p>
+</li>
+<li><p>你要是继续这样拼命工作，身体会吃不消的。</p>
+<p>You’ll wear yourself out if you carry on working so hard.</p>
+</li>
+</ol>
+
+</div></div>
+
+
 
 <hr>
 
@@ -836,223 +1171,21 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL</title>
-    <url>/MySQL/</url>
-    <content><![CDATA[<p>MySQL相关问题</p>
+    <title>Windows</title>
+    <url>/Windows/</url>
+    <content><![CDATA[<p>一些windows终端命令的问题</p>
 <span id="more"></span>
 
-<h2 id="2022-07-09"><a href="#2022-07-09" class="headerlink" title="2022.07~09"></a>2022.07~09</h2><h3 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h3><p>批量插入verificationCode，需要使用certificateUserId来拼接verificationCode</p>
-<ul>
-<li><p><code>CONCAT()</code>函数：用于将两个或多个字符串拼接成一个字符串并返回</p>
-<p>语法：<code>CONCAT(str1, str2, ...)</code> 至少需要一个参数，如果任何参数为NULL，则该函数返回NULL值。</p>
-</li>
-<li><p><code>CAST()</code>函数：用来转换类型</p>
-<p>语法：<code>CAST(字段名 as 转换的类型)</code>||<code>CAST (expression AS data_type)</code></p>
-<p>expression：任何有效的SQL Server表达式。<br>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。<br>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</p>
-<p>转换的类型：</p>
-<ul>
-<li>二进制，同带binary前缀的效果 : BINARY    </li>
-<li>字符型，可带参数 : CHAR()     </li>
-<li>日期 : DATE     </li>
-<li>时间: TIME     </li>
-<li>日期时间型 : DATETIME     </li>
-<li>浮点数 : DECIMAL      </li>
-<li>整数 : SIGNED     </li>
-<li>无符号整数 : UNSIGNED</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> eb_certificate_user</span><br><span class="line"><span class="keyword">SET</span> verification_code <span class="operator">=</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">null</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> CONCAT(</span><br><span class="line">    <span class="built_in">cast</span>(certificate_user_id <span class="keyword">as</span> <span class="type">char</span>),</span><br><span class="line">    <span class="built_in">cast</span>(<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">500000</span> <span class="operator">+</span> <span class="number">500000</span>) <span class="keyword">as</span> <span class="type">char</span>) </span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">where</span> verification_code <span class="keyword">is</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
 
 
+<h2 id="port"><a href="#port" class="headerlink" title="port"></a>port</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看tomcat configuration 的 debug 端口号（56184）</span><br><span class="line"># 终端查找被占用的端口：</span><br><span class="line">netstat -ano|findstr &quot;56184&quot;</span><br><span class="line"># 最后一列为pid</span><br><span class="line">taskkill -f -pid 26928</span><br></pre></td></tr></table></figure>
 
-<h3 id="多规格商品的数据库设计"><a href="#多规格商品的数据库设计" class="headerlink" title="多规格商品的数据库设计"></a>多规格商品的数据库设计</h3><p>项目需要做一个虚拟产品的数据库设计，涉及到多个规格</p>
-<p>比如：演出门票</p>
-<p><img src="/MySQL/image-20220804104928275.png" alt="image-20220804104928275"></p>
-<p>涉及：时间、场次、数量</p>
-<div><div class="fold_hider"><div class="close hider_title">查了几种方法：</div></div><div class="fold">
-<ol>
-<li>用大宽表，每当商品有新的属性就新增一个nullable字段。这样不同类型的记录，代码需要自己记得取哪些列。好处是编码简单；坏处是，每次都要加列，做DDL很烦，如果是生产库，运维上会很郁闷，而且直接看表，不太容易分清楚哪个列是给哪个类型的记录预备的，必须另外单独记录文档。</li>
-<li>表上增加一个json列（比如叫properties）每个类型数据特有的属性都塞这个json列里。在不直接支持json的db上，只能用varchar，然后业务代码自己解析这个json。如果在支持json的db上（比如mysql &gt; 5.7.10)，就稍微方便点，可以用json_extract之类的函数。此外一些ORM工具对json支持的不是很好，于是这个json到了object里就是string，需要额外处理。提一句mybatis通过挂一个type handler可以解决，还算容易。此方法的缺点是开发人员要管住json的schema，自己确保数据的合法性。</li>
-<li>将共性的字段放在一个主表里（比如product），此外给每种类型建立一个子表(xxx_product_part)维护特有的字段。这样结构比较清晰，但是每次查询需要引入join。每次增加一种新的类型的时候也要增加对应的新表。</li>
-<li>用主表 + 属性表。属性表就是一个大的kv（pid, key, value)。但问题是value的类型会很麻烦，毕竟可能需要字符串，整数，decimal，日期，时刻，enum等不同的类型。所以要不就是服务得自己搞这个解析转换工作，这时表就得定义为(pid, key, value_type, value_data)；要不就是挨个类型定义一列，上层自己取(pid, key, value_int, value_varchar, value_decimal, …)</li>
-<li>每种产品直接建立新表（xxx_product, yyy_product, …) 但这么干基本上就是在埋坑, 没人会这么干吧。</li>
-</ol>
-<p>如果经常增加产品的类型，可能方法2或者4会比较适合，避免每次都创建新列&#x2F;新表。并且会比较灵活（但管不好就会乱套）。</p>
-<p>如果产品类型增加的不是很频繁，方法1或者3会比较适合。</p>
-
-</div></div>
-
-
-
-<h4 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h4><ol>
-<li><p><strong>【SPU】</strong> &#x3D; Standard Product Unit （标准产品单位）</p>
-<p>SPU是商品信息聚合的最小单位，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。通俗点讲，属性值、特性相同的商品就可以称为一个SPU。</p>
-</li>
-<li><p><strong>【SKU】</strong> &#x3D; Stock Keeping Unit （库存量单位）</p>
-<p>SKU即库存进出计量的单位， 可以是以件、盒、托盘等为单位。</p>
-<p>SKU是物理上不可分割的最小存货单元。在使用时要根据不同业态，不同管理模式来处理。</p>
-</li>
-</ol>
-<p>回到演出门票商品：</p>
-<ul>
-<li><p>SPU：《恋爱的犀牛》演出门票</p>
-</li>
-<li><p>SKU[1]：268元一张的8月4号 20:00 - 21:30 的《恋爱的犀牛》演出门票</p>
-<p>SKU[2]：520元两张的8.4 20:00 - 21:30 的《恋爱的犀牛》演出门票（注意此时两张票为一个sku，所以规格中包含<code>购买票数量</code>）</p>
-</li>
-</ul>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>以该门票为例：</p>
-<ol>
-<li><p><code>eb_product</code> 表<code>（SPU表）</code>，只记录SPU信息，不涉及任何具体规格配置</p>
-<table>
-<thead>
-<tr>
-<th>Product_id（商品id）</th>
-<th>Product_name（商品名称）</th>
-<th>shop_id（商家id）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>《恋爱的犀牛》演出门票</td>
-<td>1</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><code>product_sku</code> 表<code>（SKU表）</code>，里面具体到该商品的所有配置的具体ID，但不包括配置信息</p>
-<table>
-<thead>
-<tr>
-<th>sku_id</th>
-<th>sku_name（sku_名称）</th>
-<th>product_id（FK）</th>
-<th>stock</th>
-<th>sales</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>注意：</p>
-<blockquote>
-<p>SPU表和SKU表并不直接关联，还需要通过另外三张张表来关键，即通过间接的关系来进行关联，为了便于理解，暂定为规格表，和规格选项表, SKU规格信息表</p>
-</blockquote>
-</li>
-<li><p><code>product_specification </code>表<code>（SPU规格表）</code>，设置一个外键为SPU的主键，可以通过SPU主键查询到SPU规格有哪些。</p>
-<p>比如：演出门票的规格：日期，场次，购买票数量</p>
-<table>
-<thead>
-<tr>
-<th>spec_id（规格id）</th>
-<th>product_id（FK）</th>
-<th>spec_name（规格名称）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>日期</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>场次</td>
-</tr>
-<tr>
-<td>3</td>
-<td>1</td>
-<td>购买票数量</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><code>product_spec_option</code> 表 （规格选项表），将该选项表关联到SPU规格表，就能获取到SPU的规格和具体的选项。</p>
-<p>比如：日期有8.4、8.5、8.6；场次有上午场和下午场；购买票数有1、2</p>
-<table>
-<thead>
-<tr>
-<th>option_id（选项id）</th>
-<th>spec_id（FK）</th>
-<th>value（选项值）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>1</td>
-<td>2022&#x2F;08&#x2F;04</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>2022&#x2F;08&#x2F;05</td>
-</tr>
-<tr>
-<td>3</td>
-<td>2</td>
-<td>20:00~21:30</td>
-</tr>
-<tr>
-<td>4</td>
-<td>2</td>
-<td>15:30~17:00</td>
-</tr>
-<tr>
-<td>5</td>
-<td>3</td>
-<td>1</td>
-</tr>
-<tr>
-<td>6</td>
-<td>3</td>
-<td>2</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><code>sku_specification</code> 表（SKU规格信息）把SKU关联到规格选项表就能把SKU和SPU联系起来了</p>
-</li>
-</ol>
-<p><img src="/MySQL/image-20220804105804058.png" alt="image-20220804105804058"></p>
-<p>虽然SPU和SKU有一对多的关系，但是不能直接从SPU的具体配置找到对应的SKU商品</p>
-<p>所以流程为：</p>
-<p><font color="red">SPU —&gt; 找到SPU相应的商品规格 —&gt; 获取到具体规格具体选项 —&gt; 确定到唯一对应的SKU </font></p>
-<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><h4 id="CROSS-JOIN"><a href="#CROSS-JOIN" class="headerlink" title="CROSS JOIN"></a>CROSS JOIN</h4><p>交叉连接。没有任何限制条件，结果为笛卡尔积。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1 <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"></span><br><span class="line"><span class="keyword">equals</span>:</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1, table2</span><br></pre></td></tr></table></figure>
-
-<p>产生的结果集为两个表各自个数的乘积</p>
-<h4 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h4><h3 id="去重-amp-记录总数"><a href="#去重-amp-记录总数" class="headerlink" title="去重 &amp; 记录总数"></a>去重 &amp; 记录总数</h3><ol>
-<li><p>使用<code>distinct</code>去重：适合查询整张表的总数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 统计领取过优惠券的用户总数</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br><span class="line"></span><br><span class="line"># 每个用户领取过不止一张优惠券</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> total <span class="keyword">from</span> certificateUser</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><code>group by</code> 分组去重：适合根据条件分组后查询每组的总数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 查询每种券有多少人领取</span><br><span class="line"><span class="keyword">select</span> certificate_name, <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) </span><br><span class="line"><span class="keyword">from</span> eb_certificate_user</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> certificate_id</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><ol>
-<li><p><code>You can’t specify target table for update in FROM clause</code></p>
-<p>【原因】：不能先select出同一表中的某些值，再update这个表(在同一语句中)。即不能依据某字段值做判断再来更新某字段值</p>
-<p>【解决】：将select出的结果再通过中间表select一遍</p>
-<p>eg：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 修改 userinfo 表里 age<span class="operator">=</span><span class="number">23</span> 的用户年龄为<span class="number">18</span></span><br><span class="line"></span><br><span class="line"># 错误</span><br><span class="line"><span class="keyword">update</span> userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> user_id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> user_id</span><br><span class="line">	<span class="keyword">from</span> userinfo</span><br><span class="line">	<span class="keyword">where</span> age<span class="operator">=</span><span class="number">23</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><code>Every derived table must have its own alias</code></p>
-<p>【原因】：在做<strong>多表查询</strong>，或者查询的时候<strong>产生新的表</strong>的时候会出现这个错误：Every derived table must have its own alias（<strong>每一个派生出来的表都必须有一个自己的别名</strong>）</p>
-<p>【解决】：<strong>给派生表加上别名即可</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 错误</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 正确</span><br><span class="line"><span class="keyword">UPDATE</span> app01_userinfo</span><br><span class="line"><span class="keyword">set</span> age<span class="operator">=</span><span class="number">18</span></span><br><span class="line"><span class="keyword">where</span> id <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> A.id <span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">select</span> A.id</span><br><span class="line">		<span class="keyword">from</span> app01_userinfo A</span><br><span class="line">		<span class="keyword">where</span> A.age<span class="operator">=</span><span class="number">23</span>) <span class="keyword">AS</span> A</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ol>
 ]]></content>
       <categories>
-        <category>Expertise</category>
+        <category>Configuration</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1149,13 +1282,13 @@
 <p>​	<code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=\</code> 值后面加”<code>,*</code>“</p>
 <p>​	或者下面这样：</p>
 <p>​	<code>tomcat.util.scan.StandardJarScanFilter.jarsToSkip=,*</code></p>
-<p>但是这种方法会出现一个<a href="#%E6%97%A0%E6%B3%95%E5%9C%A8web.xml%E6%88%96%E4%BD%BF%E7%94%A8%E6%AD%A4%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E9%83%A8%E7%BD%B2%E7%9A%84jar%E6%96%87%E4%BB%B6%E4%B8%AD%E8%A7%A3%E6%9E%90%E7%BB%9D%E5%AF%B9uri:%5Bhttp://java.sun.com/jsp/jstl/core%5D">新的问题</a></p>
+<p>但是这种方法会出现一个<a href="#turnToQ7">新的问题</a></p>
 <h3 id="项目启动报404错误"><a href="#项目启动报404错误" class="headerlink" title="项目启动报404错误"></a>项目启动报404错误</h3><p><code>The requested resource is not available.</code></p>
 <p>所请求的资源不可用。</p>
 <p>既然是请求资源问题，而IDEA又是通过先将项目打包成war包，然后创建一个Tomcat，将war进行加载的方式来启动项目，那么我们就可以猜测到，这个请求资源不可用的问题就一定是出现在打包war包的过程中，或是在Tomcat加载这个war包的时候出现的问题。除了这个两个可能，还有一种可能，就是项目是SVN项目，但是SVN的路径已经不可用。</p>
 <p>注意：tomcat配置的时候，URL设置的是项目的默认访问路径，Application context设置的是工程路径，工程路径需要和默认访问路径相对应，否则也会出现404，找不到资源的情况。</p>
 <h3 id="war包和war-exploded区别"><a href="#war包和war-exploded区别" class="headerlink" title="war包和war exploded区别"></a>war包和war exploded区别</h3><p>war包和war exploded的区别：<br><strong>war exploded支持热部署</strong>，它的本质是直接将项目文件夹移到Tomcat 部署文件夹里面去。</p>
-<h3 id="无法在web-xml或使用此应用程序部署的jar文件中解析绝对uri-http-java-sun-com-jsp-jstl-core"><a href="#无法在web-xml或使用此应用程序部署的jar文件中解析绝对uri-http-java-sun-com-jsp-jstl-core" class="headerlink" title="无法在web.xml或使用此应用程序部署的jar文件中解析绝对uri:[http://java.sun.com/jsp/jstl/core]"></a>无法在web.xml或使用此应用程序部署的jar文件中解析绝对uri:[<a href="http://java.sun.com/jsp/jstl/core]">http://java.sun.com/jsp/jstl/core]</a></h3><p>tomcat配置文件中的<code>conf/catalina.properties</code>文件中的</p>
+<h3 id="无法在web-xml或使用此应用程序部署的jar文件中解析绝对uri"><a href="#无法在web-xml或使用此应用程序部署的jar文件中解析绝对uri" class="headerlink" title="无法在web.xml或使用此应用程序部署的jar文件中解析绝对uri"></a><a id="turnToQ7">无法在web.xml或使用此应用程序部署的jar文件中解析绝对uri</a></h3><p>tomcat配置文件中的<code>conf/catalina.properties</code>文件中的</p>
 <p><code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=*.jar</code></p>
 <p>将其改为</p>
 <p><code>tomcat.util.scan.DefaultJarScanner.jarsToSkip=/</code></p>
@@ -1166,24 +1299,6 @@
       </categories>
       <tags>
         <tag>svn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows</title>
-    <url>/Windows/</url>
-    <content><![CDATA[<p>一些windows终端命令的问题</p>
-<span id="more"></span>
-
-
-
-<h2 id="port"><a href="#port" class="headerlink" title="port"></a>port</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看tomcat configuration 的 debug 端口号（56184）</span><br><span class="line"># 终端查找被占用的端口：</span><br><span class="line">netstat -ano|findstr &quot;56184&quot;</span><br><span class="line"># 最后一列为pid</span><br><span class="line">taskkill -f -pid 26928</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Configuration</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
 </search>
